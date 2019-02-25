@@ -20,6 +20,7 @@ const vhxResourceProxy = resource => new Proxy(
           return resolve(result);
         });
 
+        log(result);
         return Reflect.apply(result, resource, args);
       });
     },
@@ -37,4 +38,4 @@ module.exports = apiKey => new Proxy(
       return vhxResourceProxy(result);
     },
   }
-);;
+);

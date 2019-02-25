@@ -9,6 +9,7 @@
   "author": "Ren Simmons",
   "license": "ISC",
   "dependencies": {
+    "debug": "^4.1.1",
     "vhx": "^1.8.0"
   }
 }

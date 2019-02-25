@@ -1,4 +1,4 @@
-# Async/promisified Vimeo OTT/VHX Node.js API Client
+# Async/promisified Vimeo OTT Node.js API Client
 
 Use the Vimeo OTT (vhx) API client with async/await or promises.
 

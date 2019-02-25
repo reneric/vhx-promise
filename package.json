@@ -1,7 +1,7 @@
 {
   "name": "vhx-promise",
   "version": "0.0.9",
-  "description": "Async Vimeo OTT (vhx) Node.js API Client.",
+  "description": "Async/promisified Vimeo OTT Node.js API Client.",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

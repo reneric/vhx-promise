@@ -1,6 +1,6 @@
 {
   "name": "vhx-promise",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Async Vimeo OTT (vhx) Node.js API Client.",
   "main": "dist/index.js",
   "scripts": {

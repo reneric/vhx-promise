@@ -35,6 +35,7 @@ module.exports = apiKey => new Proxy(
       if (typeof result === 'function') {
         return result;
       }
+      log(result);
       return vhxResourceProxy(result);
     },
   }

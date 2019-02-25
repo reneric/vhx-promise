@@ -1,6 +1,6 @@
 {
   "name": "vhx-promise",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Async Vimeo VHX (vhx) package.",
   "main": "index.js",
   "scripts": {

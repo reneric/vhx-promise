@@ -1,0 +1,14 @@
+{
+  "name": "vhx-promise",
+  "version": "0.0.1",
+  "description": "Async Vimeo VHX (vhx) package.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ren Simmons",
+  "license": "ISC",
+  "dependencies": {
+    "vhx": "^1.8.0"
+  }
+}

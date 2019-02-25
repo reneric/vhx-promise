@@ -27,16 +27,37 @@ const vhxResourceProxy = resource => new Proxy(
   }
 );
 
-module.exports = apiKey => new Proxy(
-  vhx(apiKey),
-  {
-    get(target, key) {
-      const result = Reflect.get(target, key);
-      if (typeof result === 'function') {
-        return result;
-      }
-      log(result);
-      return vhxResourceProxy(result);
-    },
+class VhxProxy {
+  constructor (apiKey, options = {}) {
+    this.client = vhx(key, options);
   }
-);
+  get () {
+    new Proxy(
+      this.client,
+      {
+        get(target, key) {
+          const result = Reflect.get(target, key);
+          if (typeof result === 'function') {
+            return result;
+          }
+          log(result);
+          return vhxResourceProxy(result);
+        },
+      }
+    )
+  }
+}
+module.exports = VhxProxy;
+// module.exports = apiKey => new Proxy(
+//   vhx(apiKey),
+//   {
+//     get(target, key) {
+//       const result = Reflect.get(target, key);
+//       if (typeof result === 'function') {
+//         return result;
+//       }
+//       log(result);
+//       return vhxResourceProxy(result);
+//     },
+//   }
+// );

@@ -10,7 +10,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git://github.com/vhx/vhx-js.git"
+    "url": "git://github.com/reneric/vhx-promise.git"
   },
   "dependencies": {
     "debug": "^4.1.1",

@@ -1,8 +1,6 @@
 const vhx = require('vhx');
 const log = require('debug')('vimeo-promise:client');
 
-const vimeoClient = vhx(vimeoConfig.api_key);
-
 
 const vimeoResourceProxy = resource => new Proxy(
   resource,
@@ -28,19 +26,6 @@ const vimeoResourceProxy = resource => new Proxy(
   }
 );
 
-const vimeoProxy = new Proxy(
-  vimeoClient,
-  {
-    get(target, key) {
-      const result = Reflect.get(target, key);
-      if (typeof result === 'function') {
-        return result;
-      }
-      return vimeoResourceProxy(result);
-    },
-  }
-);
-
 class VhxProxy {
   constructor(apiKey) {
     this.client = new vhx(apiKey);
@@ -48,7 +33,7 @@ class VhxProxy {
 
   get() {
     return new Proxy(
-      vimeoClient,
+      this.client,
       {
         get(target, key) {
           const result = Reflect.get(target, key);
@@ -61,3 +46,5 @@ class VhxProxy {
     );
   }
 };
+
+module.exports = VhxProxy;

@@ -1,13 +1,13 @@
 {
   "name": "vhx-promise",
   "version": "0.0.8",
-  "description": "Async Vimeo OTT (vhx)",
-  "main": "index.js",
+  "description": "Async Vimeo OTT (vhx) Node.js API Client.",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ren Simmons",
-  "license": "MIT",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git://github.com/vhx/vhx-js.git"

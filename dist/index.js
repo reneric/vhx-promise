@@ -36,7 +36,7 @@ const noProxy = [
 
 const doNotProxy = v => noProxy.includes(v);
 
-module.exports = apiKey => {
+module.exports = (apiKey = '') => {
   const client = vhx(apiKey);
   return new Proxy(
     client,
@@ -46,6 +46,7 @@ module.exports = apiKey => {
         if (doNotProxy(key)) {
           return client;
         }
+
         const result = Reflect.get(target, key);
         if (typeof result === 'function') {
           return result;

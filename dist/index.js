@@ -37,22 +37,27 @@ const noProxy = [
 const doNotProxy = v => noProxy.includes(v);
 
 module.exports = (apiKey = '') => {
-  const client = vhx(apiKey);
-  return new Proxy(
-    client,
-    {
-      get(target, key) {
-        log(`Key: ${key}`);
-        if (doNotProxy(key)) {
-          return client;
-        }
+  try {
+    const client = vhx(apiKey);
+    return new Proxy(
+      client,
+      {
+        get(target, key) {
+          log(`Key: ${key}`);
+          if (doNotProxy(key)) {
+            return client;
+          }
 
-        const result = Reflect.get(target, key);
-        if (typeof result === 'function') {
-          return result;
-        }
-        return vhxResourceProxy(result);
-      },
-    }
-  );
+          const result = Reflect.get(target, key);
+          if (typeof result === 'function') {
+            return result;
+          }
+          return vhxResourceProxy(result);
+        },
+      }
+    );
+  }
+  catch (err) {
+    console.log(err);
+  }
 }
